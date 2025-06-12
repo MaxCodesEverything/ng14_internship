@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './components/home/home.component';
-import { ShopComponent } from './components/shop/shop.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ExamplesComponent } from './components/examples/examples.component';
+import { JsComponent } from './components/js/js.component';
+import { TsComponent } from './components/ts/ts.component';
+import { StylesComponent } from './components/styles/styles.component';
+import { EtudeComponent } from './components/etude/etude.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    ShopComponent,
-    AboutComponent,
-    ContactComponent,
+    SidebarComponent,
+    ExamplesComponent,
+    JsComponent,
+    TsComponent,
+    StylesComponent,
+    EtudeComponent,
   ],
   imports: [
     BrowserModule,
