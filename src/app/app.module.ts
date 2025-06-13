@@ -10,6 +10,7 @@ import { StylesComponent } from './components/styles/styles.component';
 import { EtudeComponent } from './components/etude/etude.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { HomeComponent } from './components/home/home.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
     EtudeComponent,
     CalendarComponent,
     HomeComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
