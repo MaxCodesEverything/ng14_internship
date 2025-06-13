@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TsRoutingModule } from './ts-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 
 
 
@@ -8,7 +8,7 @@ import { TsRoutingModule } from './ts-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    TsRoutingModule
+    HomeRoutingModule
   ]
 })
-export class TsModule { }
+export class HomeModule { }

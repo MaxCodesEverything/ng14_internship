@@ -8,6 +8,8 @@ import { JsComponent } from './components/js/js.component';
 import { TsComponent } from './components/ts/ts.component';
 import { StylesComponent } from './components/styles/styles.component';
 import { EtudeComponent } from './components/etude/etude.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { EtudeComponent } from './components/etude/etude.component';
     TsComponent,
     StylesComponent,
     EtudeComponent,
+    CalendarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

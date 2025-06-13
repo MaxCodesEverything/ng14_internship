@@ -1,0 +1,12 @@
+<div class="year-header">
+  <h1>{{ currentYear }}</h1>
+</div>
+
+<div class="months-grid">
+  <div
+    class="month-card"
+    *ngFor="let month of months; let i = index"
+  >
+    {{ month }}
+  </div>
+</div>

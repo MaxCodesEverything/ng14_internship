@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterModule, Routes } from '@angular/router';
 ;
 
 const routes: Routes = [
   {
-    path: '', 
-    component: SidebarComponent
+    path: '',
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'examples',
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   { 
     path: 'js', 
-    loadChildren: () => import('./modules/js/js.module').then(m => m.JsModule) 
+    loadChildren: () => import('./modules/js/js.module').then(m => m.JsModule)
   },
   { 
     path: 'etude', 
@@ -26,6 +26,10 @@ const routes: Routes = [
   { 
     path: 'styles', 
     loadChildren: () => import('./modules/styles/styles.module').then(m => m.StylesModule) 
+  },
+  { 
+    path: 'calendar', 
+    loadChildren: () => import('./modules/calendar/calendar.module').then(m => m.CalendarModule) 
   }
   
 ];
