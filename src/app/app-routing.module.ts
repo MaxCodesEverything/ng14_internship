@@ -5,31 +5,39 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+    loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent)
   },
   {
     path: 'examples',
-    loadChildren: () => import('./modules/examples/examples.module').then(m => m.ExamplesModule)
+    loadComponent: () => import('./components/examples/examples.component').then(c => c.ExamplesComponent)
   },
   { 
     path: 'js', 
-    loadChildren: () => import('./modules/js/js.module').then(m => m.JsModule)
+    loadComponent: () => import('./components/js/js.component').then(c => c.JsComponent)
   },
   { 
-    path: 'etude', 
-    loadChildren: () => import('./modules/etude/etude.module').then(m => m.EtudeModule) 
+    path: 'practice', 
+    loadComponent: () => import('./components/practice/practice.component').then(c => c.PracticeComponent) 
   },
   { 
     path: 'ts', 
-    loadChildren: () => import('./modules/ts/ts.module').then(m => m.TsModule) 
+    loadComponent: () => import('./components/ts/ts.component').then(c => c.TsComponent)
   },
   { 
     path: 'styles', 
-    loadChildren: () => import('./modules/styles/styles.module').then(m => m.StylesModule) 
+    loadComponent: () => import('./components/styles/styles.component').then(c => c.StylesComponent)
   },
   { 
     path: 'calendar', 
-    loadChildren: () => import('./modules/calendar/calendar.module').then(m => m.CalendarModule) 
+    loadComponent: () => import('./components/calendar/calendar.component').then(c => c.CalendarComponent) 
+  },
+  { 
+    path: 'components', 
+    loadChildren: () => import('./modules/components/components.module').then(m => m.ComponentsModule)
+  },
+  { 
+    path: 'test', 
+    loadComponent: () => import('./components/test/test.component').then(c => c.TestComponent)
   }
   
 ];

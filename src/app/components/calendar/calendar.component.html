@@ -3,10 +3,19 @@
 </div>
 
 <div class="months-grid">
-  <div
-    class="month-card"
-    *ngFor="let month of months; let i = index"
-  >
-    {{ month }}
+  <div class="month-card" *ngFor="let month of months; let i = index">
+    <div class="month-card__month-name">{{ month }}</div>
+    
+     <div class="month-card__calendar-grid">
+      <div class="month-card__day-name" *ngFor="let day of ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']">
+        {{ day }}
+      </div>
+
+      <ng-container *ngFor="let week of calendars[i]">
+        <div class="month-card__day-cell" *ngFor="let day of week">
+          {{ day || '' }}
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
