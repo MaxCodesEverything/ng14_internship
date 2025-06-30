@@ -38,6 +38,10 @@ const routes: Routes = [
   { 
     path: 'test', 
     loadComponent: () => import('./components/test/test.component').then(c => c.TestComponent)
+  },
+  { 
+    path: 'task', 
+    loadComponent: () => import('./components/task/task.component').then(c => c.TaskComponent)
   }
   
 ];
