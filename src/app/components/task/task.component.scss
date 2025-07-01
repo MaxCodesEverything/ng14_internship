@@ -1,14 +1,23 @@
 .task-container{
     max-width: 800px;
-    text-align: center;
-    margin-bottom: 30px;
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    &:nth-child(1){
+        margin-top: 50px;
+    }
+    &__task-name{
+        text-align: center;
+    }
     &__description{
-        border: 1px solid black;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border: 1px solid #9c9c9ca9;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
     }
     &__description-text{
-        padding: 20px 0;
+        padding: 20px 50px;
     }
     &__solution{
         border: none;
@@ -17,16 +26,22 @@
         transition: all 0.3s ease;
     }
     &__solution-text{
-        padding: 20px 0;
+        padding: 20px 50px;
+    }
+    &__arrow{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__arrow-icon{
+        max-width: 5vw;
+        max-height: 5vh;
     }
 }
 
-svg{
-    max-width: 5vw;
-    max-height: 5vh;
-}
-
 .open{
-    max-height: 50px;
-    border: 1px solid black;
+    max-height: 50rem;
+    border: 1px solid #585858a2;
+    border-top: 0;
 }
