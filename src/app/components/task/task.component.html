@@ -1,5 +1,8 @@
 <div class="task-container">
-    <h2 class="task-container__task-name">Task 1</h2>
+    <div class="task-container__task-name">
+        <ng-content select="[task-name]"></ng-content>
+    </div>
+    <!-- <h2 class="task-container__task-name">Task 1</h2> -->
     <div class="task-container__description" (click)="toggle()">
         <div class="task-container__description-box">
             <p class="task-container__description-text">

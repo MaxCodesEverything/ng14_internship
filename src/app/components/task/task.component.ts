@@ -1,5 +1,7 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "src/app/services/http.service";
+import { Tasks } from "src/assets/interfaces/tasks.interface";
 
 @Component({
     standalone: true,
@@ -8,10 +10,12 @@ import { Component } from "@angular/core";
     styleUrls: ['./task.component.scss'],
     imports: [CommonModule]
 })
-export class TaskComponent {
+export class TaskComponent{
+
     isOpen: boolean = false;
 
     toggle(){
         this.isOpen = !this.isOpen;
     }
+
 }
