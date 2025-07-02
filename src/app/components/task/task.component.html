@@ -2,13 +2,17 @@
     <h2 class="task-container__task-name">Task 1</h2>
     <div class="task-container__description" (click)="toggle()">
         <div class="task-container__description-box">
-            <p class="task-container__description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid commodi consectetur tenetur soluta asperiores ipsum earum eos molestiae vero natus, corporis impedit laudantium eum ullam modi ratione illum quibusdam veniam.</p>
+            <p class="task-container__description-text">
+                <ng-content select="[description-text]" class="task-container__description-text"></ng-content>
+            </p>
         </div>
         <div class="task-container__arrow">
-            <img class="task-container__arrow-icon" src="../../../assets/icons/arrow-down.svg" alt="arrow down">
+            <img class="task-container__arrow-icon" src="../../../assets/img/arrow-down.png" alt="arrow down">
         </div>
     </div>
     <div class="task-container__solution" [ngClass]="{ 'open': isOpen }">
-        <p class="task-container__solution-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque architecto officiis ea voluptate minus vitae beatae consequuntur excepturi explicabo, possimus deserunt nulla veritatis earum quisquam officia doloremque nihil corrupti. Reiciendis?</p>
+        <div class="task-container__solution-text">
+            <ng-content select="[solution-text]"></ng-content>
+        </div>
     </div>
 </div>

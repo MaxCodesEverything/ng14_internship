@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Vowel Count",
+        "description": "",
+        "code": "function getCount(str) {\n  let counter = 0;\n  let vowels = 'aeiou';\n  for (let i = 0; i < str.length; i++) {\n    if (vowels.includes(str[i])) {\n      counter++;\n    }\n  }\n  return counter;\n}"
+    },
+    {
+        "title": "Максимум в массиве",
+        "description": "Найди максимальное число в массиве.",
+        "code": "const max = Math.max(...arr);"
+    }
+]
