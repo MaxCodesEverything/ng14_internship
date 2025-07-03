@@ -13,7 +13,8 @@
 
       <ng-container *ngFor="let week of calendars[i]">
         <div class="month-card__day-cell" *ngFor="let day of week">
-          {{ day || '' }}
+          <div *ngIf="day" [appTodayDirective]="{year: currentYear, month: i, day: day}">{{ day }}</div>
+          <div *ngIf="!day">&nbsp;</div>
         </div>
       </ng-container>
     </div>

@@ -1,10 +1,11 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { TodayDirective } from 'src/app/directives/today-directive.directive';
 
 @Component({
   standalone: true,
   selector: 'app-calendar',
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule, NgFor, TodayDirective],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
