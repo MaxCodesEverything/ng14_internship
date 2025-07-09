@@ -7,8 +7,14 @@
     },
     {
         "id": 2,
-        "title": "Максимум в массиве",
-        "description": "Найди максимальное число в массиве.",
-        "code": "const max = Math.max(...arr);"
+        "title": "List Filtering",
+        "description": "In this kata you will create a function that takes a list of non-negative integers and strings\nand returns a new list with the strings filtered out.",
+        "code": "function filter_list(l) {\n  return l.filter((n) => {\n    return typeof n === 'number';\n  });\n}"
+    },
+    {
+        "id": 3,
+        "title": "",
+        "description": "",
+        "code": ""
     }
 ]

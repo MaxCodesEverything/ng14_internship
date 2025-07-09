@@ -1,0 +1,15 @@
+<div class="carousel-container">
+    <img *ngFor="let image of images; let i = index" 
+        [src]="image.imgSrc" [alt]="image.imgAlt" 
+        class="carousel-container__image"
+        [ngClass]="{'image-active': selectedIndex === i}"
+    >
+
+    <div class="carousel-prev-btn-container">
+        <i class="fa-solid fa-square-caret-left"></i>
+    </div>
+
+    <div class="carousel-next-btn-container">
+        <i class="fa-solid fa-square-caret-right"></i>
+    </div>
+</div>
