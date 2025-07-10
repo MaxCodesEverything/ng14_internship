@@ -5,11 +5,18 @@
         [ngClass]="{'image-active': selectedIndex === i}"
     >
 
-    <div class="carousel-prev-btn-container">
-        <i class="fa-solid fa-square-caret-left"></i>
+    <div class="dots-container">
+        <div class="dots-container__dot" *ngFor="let dot of images; let i = index" 
+        (click)="onDotClick(i)"
+        [ngClass]="{'dot-active': selectedIndex === i}"
+        ></div>
     </div>
 
-    <div class="carousel-next-btn-container">
-        <i class="fa-solid fa-square-caret-right"></i>
+    <div class="carousel-container__prev-btn-container">
+        <i class="fa-solid fa-square-caret-left" (click)="onPrevBtn()"></i>
+    </div>
+
+    <div class="carousel-container__next-btn-container">
+        <i class="fa-solid fa-square-caret-right" (click)="onNextBtn()"></i>
     </div>
 </div>

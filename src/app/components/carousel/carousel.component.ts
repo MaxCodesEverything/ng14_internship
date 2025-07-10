@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Images } from "src/assets/interfaces/images.interface";
 
 @Component({
@@ -10,7 +10,19 @@ import { Images } from "src/assets/interfaces/images.interface";
     imports: [CommonModule]
 })
 
-export class CarouselComponent{
+export class CarouselComponent implements OnInit{
+
+    selectedIndex: number = 0;
+    autoScroll: boolean = false;
+
+    ngOnInit(): void {
+        if(this.autoScroll){
+            setInterval(() => {
+                this.onNextBtn();
+            }, 3000);
+        }
+    }
+
     //Здесь хранятся все данные, но лучше в будущем перекинуть их в родительский компонент(разные карусели)
     images: Images[] = [
         {
@@ -27,5 +39,23 @@ export class CarouselComponent{
         }
     ];
 
-    selectedIndex: number = 0;
+    onDotClick(index: number){
+        this.selectedIndex = index;
+    }
+
+    onPrevBtn(){
+        this.selectedIndex--;
+
+        if(this.selectedIndex < 0){
+            this.selectedIndex = this.images.length - 1;
+        }
+    }
+
+    onNextBtn(){
+        this.selectedIndex++;
+
+        if(this.selectedIndex > this.images.length - 1){
+            this.selectedIndex = 0;
+        }
+    }
 }

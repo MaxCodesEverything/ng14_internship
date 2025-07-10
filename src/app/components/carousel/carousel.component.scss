@@ -1,13 +1,111 @@
 .carousel-container{
     max-width: 700px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 10px;
     &__image{
         width: 100%;
-        display: none;
-
+        height: 100%;
+        opacity: 0;
+        transition: all 0.3s;
+        position: absolute;
         &.image-active{
-            display: block;
+            opacity: 1;
         }
     }
     
+    &__prev-btn-container,
+    &__next-btn-container{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    &__prev-btn-container{
+        left: 10px;
+    }
+
+    &__next-btn-container{
+        right: 10px;
+    }
+
+    i.fa-square-caret-left,
+    i.fa-square-caret-right {
+        font-size: 50px;
+        color: white;
+        opacity: 50%;
+        transition: opacity 0.3s;
+    }
+
+    i.fa-square-caret-left:hover,
+    i.fa-square-caret-right:hover{
+        opacity: 100%;
+    }
+}
+
+.dots-container{
+    padding: 10px;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    &__dot{
+        height: 15px;
+        width: 15px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    &__dot.dot-active{
+        opacity: 100%;
+    }
+}
+
+@media (max-width: 818px){
+    .carousel-container{
+        max-width: 650px;
+        height: 464px;
+    }
+}
+
+@media (max-width: 771px){
+    .carousel-container{
+        max-width: 600px;
+        height: 429px;
+    }
+}
+
+@media (max-width: 728px){
+    .carousel-container{
+        max-width: 500px;
+        height: 357px;
+    }
+}
+
+@media (max-width: 621px){
+    .carousel-container{
+        max-width: 450px;
+        height: 321px;
+    }
+}
+
+@media (max-width: 575px){
+    .carousel-container{
+        max-width: 400px;
+        height: 286px;
+    }
+}
+
+@media (max-width: 520px){
+    .carousel-container{
+        max-width: 350px;
+        height: 250px;
+    }
 }
 
