@@ -27,16 +27,20 @@ const routes: Routes = [
     path: 'styles', 
     loadComponent: () => import('./components/styles/styles.component').then(c => c.StylesComponent)
   },
+  {
+    path: 'components',
+    loadComponent: () => import('./components/components-component/components.component').then(c => c.ComponentsComponent) 
+  },
   { 
-    path: 'calendar', 
+    path: 'components/calendar', 
     loadComponent: () => import('./components/calendar/calendar.component').then(c => c.CalendarComponent) 
   },
-  { 
-    path: 'components', 
-    loadChildren: () => import('./modules/components/components.module').then(m => m.ComponentsModule)
+  {
+    path: 'components/carousel',
+    loadComponent: () => import('./components/carousel/carousel.component').then(c => c.CarouselComponent)
   },
   { 
-    path: 'test', 
+    path: 'test', // Component just for testing features
     loadComponent: () => import('./components/test/test.component').then(c => c.TestComponent)
   },
   { 
