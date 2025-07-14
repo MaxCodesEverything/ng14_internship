@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { Images } from "src/assets/interfaces/images.interface";
 
 @Component({
@@ -7,19 +8,21 @@ import { Images } from "src/assets/interfaces/images.interface";
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
     styleUrls: ['./carousel.component.scss'],
-    imports: [CommonModule]
+    imports: [CommonModule, FormsModule]
 })
 
 export class CarouselComponent implements OnInit{
 
     selectedIndex: number = 0;
+    intervalId: any;
     autoScroll: boolean = false;
+    hasControlDots: boolean = true;
+    hasControlArrows: boolean = true;
+    autoScrollTimer: number = 3000;
 
     ngOnInit(): void {
         if(this.autoScroll){
-            setInterval(() => {
-                this.onNextBtn();
-            }, 3000);
+            this.startAutoScroll();
         }
     }
 
@@ -39,8 +42,45 @@ export class CarouselComponent implements OnInit{
         }
     ];
 
+    startAutoScroll(){
+        if(this.autoScroll){
+            this.intervalId = setInterval(() => {
+                this.onNextBtn();
+            }, this.autoScrollTimer);
+        }
+    }
+
+    stopAutoScroll(){
+        clearInterval(this.intervalId);
+    }
+
+    toggleAutoScroll(){
+        this.autoScroll = !this.autoScroll;
+        if(this.autoScroll){
+            this.startAutoScroll();
+        }
+        else{
+            this.stopAutoScroll();
+        }
+    }
+
     onDotClick(index: number){
         this.selectedIndex = index;
+    }
+
+    toggleDots(){
+        this.hasControlDots = !this.hasControlDots;
+    }
+
+    toggleArrows(){
+        this.hasControlArrows = !this.hasControlArrows;
+    }
+
+    updateTimer(){
+        if(this.autoScroll){
+            this.stopAutoScroll();
+            this.startAutoScroll();
+        }
     }
 
     onPrevBtn(){

@@ -5,18 +5,45 @@
         [ngClass]="{'image-active': selectedIndex === i}"
     >
 
-    <div class="dots-container">
+    <div *ngIf="hasControlDots" class="dots-container">
         <div class="dots-container__dot" *ngFor="let dot of images; let i = index" 
         (click)="onDotClick(i)"
         [ngClass]="{'dot-active': selectedIndex === i}"
         ></div>
     </div>
 
-    <div class="carousel-container__prev-btn-container">
+    <div *ngIf="hasControlArrows" class="carousel-container__prev-btn-container">
         <i class="fa-solid fa-square-caret-left" (click)="onPrevBtn()"></i>
     </div>
 
-    <div class="carousel-container__next-btn-container">
+    <div *ngIf="hasControlArrows" class="carousel-container__next-btn-container">
         <i class="fa-solid fa-square-caret-right" (click)="onNextBtn()"></i>
     </div>
+</div>
+
+<div class="settings-container">
+    <h1 class="settings-container__title">Settings</h1>
+    <!-- Настройки карусели -->
+    
+    <div class="settings-container__auto-scroll settings">
+        <p>Auto Scroll</p>
+        <button (click)="toggleAutoScroll()">toggle</button>
+    </div>
+
+    <div class="settings-container__control-dots settings">
+        <p>Control dots</p>
+        <button (click)="toggleDots()">toggle</button>
+    </div>
+
+    <div class="settings-container__control-arrows settings">
+        <p>Control arrows</p>
+        <button (click)="toggleArrows()">toggle</button>
+    </div>
+
+    <div class="settings-container__timer settings">
+        <p>Auto Scroll Timer(milliseconds)</p>
+        <input type="number" min="0" [(ngModel)]="autoScrollTimer">
+        <button (click)="updateTimer()">apply</button>
+    </div>
+
 </div>
