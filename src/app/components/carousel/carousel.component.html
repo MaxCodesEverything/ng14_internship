@@ -1,9 +1,11 @@
 <div class="carousel-container">
-    <img *ngFor="let image of images; let i = index" 
-        [src]="image.imgSrc" [alt]="image.imgAlt" 
-        class="carousel-container__image"
-        [ngClass]="{'image-active': selectedIndex === i}"
-    >
+    <div class="carousel-track" [style.transform]="'translateX(' + (-selectedIndex * 100) + '%)'">
+        <img *ngFor="let image of images" 
+            [src]="image.imgSrc" 
+            [alt]="image.imgAlt" 
+            class="carousel-image"
+        >
+    </div>
 
     <div *ngIf="hasControlDots" class="dots-container">
         <div class="dots-container__dot" *ngFor="let dot of images; let i = index" 
