@@ -1,33 +1,33 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TodayDirective } from 'src/app/directives/today-directive.directive';
+import { CalendarDayComponent } from "../calendar-day/calendar-day.component";
 
 @Component({
   standalone: true,
   selector: 'app-calendar',
-  imports: [CommonModule, NgFor, TodayDirective],
+  imports: [CommonModule, NgFor, CalendarDayComponent],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
 
-  currentYear: number = new Date().getFullYear();
-  months: string[] = [
-      'Январь', 'Февраль', 'Март', 'Апрель',
-      'Май', 'Июнь', 'Июль', 'Август',
-      'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
-  ];;
+  date = new Date;
+  currentYear: number = this.date.getFullYear();
+  months: string[] = [];
+  weekdays: string[] = [];
   calendars: (number | null)[][][] = [];
 
   ngOnInit(): void {
-    for (let month = 0; month < 12; month++) {
-      this.calendars.push(this.generateMonthCalendar(this.currentYear, month));
-    }
-
-    console.log(this.calendars);
+    this.generateCalendar();
+    this.generateMonthNames();
+    this.generateWeekdayNames();
   }
 
-  generateMonthCalendar(year: number, month: number): (number | null)[][] {
+  trackByFn(index: number): number {
+    return index;
+  }
+
+  private generateMonthCalendar(year: number, month: number): (number | null)[][] {
     const weeks: (number | null)[][] = [];
     const date = new Date(year, month, 1);
     const firstDay = (date.getDay() + 6) % 7; 
@@ -47,5 +47,31 @@ export class CalendarComponent implements OnInit {
     }
 
     return weeks;
+  }
+
+  private generateCalendar(){
+    for (let month = 0; month < 12; month++) {
+      this.calendars.push(this.generateMonthCalendar(this.currentYear, month));
+    }
+  }
+
+  private generateWeekdayNames(): void {
+    const mondayDate = new Date('2024-01-01');
+
+    for (let i = 0; i < 7; i++) {
+      const weekday = mondayDate.toLocaleDateString('ru-RU', { weekday: 'short' });
+      const capitalizedWeekday = weekday.charAt(0).toUpperCase() + weekday.slice(1);
+      this.weekdays.push(capitalizedWeekday);
+      mondayDate.setDate(mondayDate.getDate() + 1);
+    }
+  }
+
+  private generateMonthNames(){
+    for(let i = 0; i < 12; i++){
+      this.date.setMonth(i);
+      const monthName = this.date.toLocaleDateString('ru-RU', { month: 'long' });
+      const capitalizedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+      this.months.push(capitalizedMonth);
+    }
   }
 }

@@ -3,18 +3,17 @@
 </div>
 
 <div class="months-grid">
-  <div class="month-card" *ngFor="let month of months; let i = index">
+  <div class="month-card" *ngFor="let month of months; let i = index; trackBy: trackByFn">
     <div class="month-card__month-name">{{ month }}</div>
     
      <div class="month-card__calendar-grid">
-      <div class="month-card__day-name" *ngFor="let day of ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']">
+      <div class="month-card__day-name" *ngFor="let day of weekdays; trackBy: trackByFn">
         {{ day }}
       </div>
 
-      <ng-container *ngFor="let week of calendars[i]">
-        <div class="month-card__day-cell" *ngFor="let day of week">
-          <div *ngIf="day" [appTodayDirective]="{year: currentYear, month: i, day: day}">{{ day }}</div>
-          <div *ngIf="!day">&nbsp;</div>
+      <ng-container *ngFor="let week of calendars[i]; trackBy: trackByFn">
+        <div class="month-card__day-cell" *ngFor="let day of week; trackBy: trackByFn">
+          <app-calendar-day [day]="day" [monthIndex]="i" [year]="currentYear"></app-calendar-day>
         </div>
       </ng-container>
     </div>

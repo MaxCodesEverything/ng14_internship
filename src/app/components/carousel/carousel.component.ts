@@ -21,9 +21,7 @@ export class CarouselComponent implements OnInit{
     autoScrollTimer: number = 3000;
 
     ngOnInit(): void {
-        if(this.autoScroll){
-            this.startAutoScroll();
-        }
+        this.checkAutoScroll();
     }
 
     //Здесь хранятся все данные, но лучше в будущем перекинуть их в родительский компонент(разные карусели)
@@ -61,6 +59,12 @@ export class CarouselComponent implements OnInit{
         }
         else{
             this.stopAutoScroll();
+        }
+    }
+
+    checkAutoScroll(){
+        if(this.autoScroll){
+            this.startAutoScroll();
         }
     }
 
