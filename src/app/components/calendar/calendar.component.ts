@@ -68,8 +68,8 @@ export class CalendarComponent implements OnInit {
 
   private generateMonthNames(){
     for(let i = 0; i < 12; i++){
-      this.date.setMonth(i);
-      const monthName = this.date.toLocaleDateString('ru-RU', { month: 'long' });
+      const newDate = new Date(this.currentYear, i, 1); 
+      const monthName = newDate.toLocaleDateString('ru-RU', { month: 'long' });
       const capitalizedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
       this.months.push(capitalizedMonth);
     }
