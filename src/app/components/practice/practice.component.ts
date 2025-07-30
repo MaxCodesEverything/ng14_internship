@@ -18,7 +18,7 @@ export class PracticeComponent implements OnInit{
     tasks: Tasks[] = []; 
 
     ngOnInit() {
-        this.httpService.getData().subscribe(data => {
+        this.httpService.getTasks().subscribe(data => {
             this.tasks = data;
             console.log(this.tasks)
         })

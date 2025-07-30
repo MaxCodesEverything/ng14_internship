@@ -1,1 +1,9 @@
-<p>examples works!</p>
+<div class="array-methods-container">
+    <h1 class="array-methods-container__title">Array Methods</h1>
+
+    <div *ngFor="let method of arrayMethods" class="array-methods-container__higher-order higher-order">
+        <h3 class="higher-order__title">{{ method.id }}. {{ method.title }}</h3>
+        <p class="higher-order__description">{{ method.description }}</p>
+        <p class="higher-order__returns">returns <span>{{ method.returns }}</span></p>
+    </div>
+</div>

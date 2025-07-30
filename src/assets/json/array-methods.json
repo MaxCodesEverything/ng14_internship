@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Array.forEach()",
+        "description": "Проходит по всему массиву и выполняет callback-функцию для каждого элемента. Альтернатива циклу for.",
+        "returns": "undefined"
+    },
+    {
+        "id": 2,
+        "title": "Array.map()",
+        "description": "Проходит по всему массиву и выполняет callback-функцию для каждого элемента. Не мутирует исходный массив",
+        "returns": "New Array"
+    },
+    {
+        "id": 3,
+        "title": "Array.filter()",
+        "description": "Выполняет callback-функцию для каждого элемента. Эта функция возвращает true, если подходит под заданные условия",
+        "returns": "New Array"
+    },
+    {
+        "id": 4,
+        "title": "Array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue)",
+        "description": "Сокращает весь массив до одного значения. Accumulator - значение, которое накапливает результат (по дефолту начальное значение равно первому элементу массива,если не задан initial value). CurrentValue - текущий элемент. CurrentIndex - индекс текущего элемента. Array - массив, к которому применяется функция.",
+        "returns": "one value (number, string etc.)"
+    },
+    {
+        "id": 5,
+        "title": "Array.some()",
+        "description": "Работает как фильтр, только возвращает true/false. True если хоть один элемент подходит под условие.",
+        "returns": "boolean"
+    },
+    {
+        "id": 6,
+        "title": "Array.every()",
+        "description": "То же самое, что и Array.some() только для true должны подходить под условие все элементы.",
+        "returns": "boolean"
+    },
+    {
+        "id": 7,
+        "title": "Array.find()",
+        "description": "Находит первый подходящий элемент (строку, число и тд).",
+        "returns": "the first matching element"
+    },
+    {
+        "id": 7,
+        "title": "Array.findIndex()",
+        "description": "Находит индекс первого подходящего элемента.",
+        "returns": "number"
+    },
+    {
+        "id": 8,
+        "title": "Array.sort()",
+        "description": "Сортирует массив как строку(по дефолту в алфавитном порядке). Можно передать 2 параметра (a, b) и написать callback-функцию для сортировки чисел.",
+        "returns": "Mutated Array"
+    }
+]
