@@ -16,9 +16,10 @@ export class CalendarComponent implements OnInit {
   months: string[] = [];
   weekdays: string[] = [];
   calendars: (number | null)[][][] = [];
+  selectedMonthIndex: number = 0;
 
   monthViewActive: boolean = false;
-  selectedMonthIndex: number = 0;
+  highlightToday: boolean = true;
 
   ngOnInit(): void {
     this.generateCalendar();
@@ -116,5 +117,15 @@ export class CalendarComponent implements OnInit {
     else{
       this.selectedMonthIndex++;
     }
+  }
+
+  // Дальше идут настройки для карусели
+
+  toggleViewMode(){
+    this.monthViewActive = !this.monthViewActive;
+  }
+
+  toggleHighlightToday(){
+    this.highlightToday = !this.highlightToday;
   }
 }

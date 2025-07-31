@@ -45,3 +45,20 @@
 
   <button class="month-active-container__btn" (click)="onReturnBtn()"><= Return</button>
 </div>
+
+<div class="calendar-settings">
+  <h1 class="calendar-settings__title">Settings</h1>
+    <!-- Настройки календаря -->
+
+    <div class="settings">
+        <p>View Mode (year/month)</p>
+        <button (click)="toggleViewMode()">toggle</button>
+    </div>
+
+    <div class="settings">
+      <!-- Придумать как это реализовать -->
+        <p>Highlight today</p> 
+        <button (click)="toggleHighlightToday()">toggle</button>
+    </div>
+    
+</div>
