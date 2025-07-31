@@ -62,6 +62,9 @@
   &__day-cell {
     font-size: 15px;
     color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
