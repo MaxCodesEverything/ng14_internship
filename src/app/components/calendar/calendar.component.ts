@@ -17,6 +17,9 @@ export class CalendarComponent implements OnInit {
   weekdays: string[] = [];
   calendars: (number | null)[][][] = [];
 
+  monthViewActive: boolean = false;
+  selectedMonthIndex: number = 0;
+
   ngOnInit(): void {
     this.generateCalendar();
     this.generateMonthNames();
@@ -73,5 +76,14 @@ export class CalendarComponent implements OnInit {
       const capitalizedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
       this.months.push(capitalizedMonth);
     }
+  }
+
+  onMonthClick(index: number){
+    this.monthViewActive = true;
+    this.selectedMonthIndex = index;
+  }
+
+  onReturnBtn(){
+    this.monthViewActive = false;
   }
 }

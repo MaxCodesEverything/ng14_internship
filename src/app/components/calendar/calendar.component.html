@@ -2,8 +2,8 @@
   <h1>{{ currentYear }}</h1>
 </div>
 
-<div class="months-grid">
-  <div class="month-card" *ngFor="let month of months; let i = index; trackBy: trackByFn">
+<div *ngIf="!monthViewActive" class="months-grid">
+  <div (click)="onMonthClick(i)" class="month-card" *ngFor="let month of months; let i = index; trackBy: trackByFn">
     <div class="month-card__month-name">{{ month }}</div>
     
      <div class="month-card__calendar-grid">
@@ -18,4 +18,24 @@
       </ng-container>
     </div>
   </div>
+</div>
+
+<div *ngIf="monthViewActive" class="month-active-container">
+  <div class="month-card month-active">
+    <div class="month-card__month-name month-active__month-name">{{ months[selectedMonthIndex] }}</div>
+    
+     <div class="month-card__calendar-grid month-active__calendar-grid">
+      <div class="month-card__day-name month-active__day-name" *ngFor="let day of weekdays; trackBy: trackByFn">
+        {{ day }}
+      </div>
+
+      <ng-container *ngFor="let week of calendars[selectedMonthIndex]; trackBy: trackByFn">
+        <div class="month-card__day-cell month-active__day-cell" *ngFor="let day of week; trackBy: trackByFn">
+          <app-calendar-day [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <button class="month-active-container__btn" (click)="onReturnBtn()"><= Return</button>
 </div>

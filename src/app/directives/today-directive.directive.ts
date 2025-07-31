@@ -11,6 +11,10 @@ export class TodayDirective implements OnInit{
     constructor(private el: ElementRef, private renderer: Renderer2){}
 
     ngOnInit() {
+        this.checkToday();
+    }
+
+    checkToday(){
         const today = new Date();
         if(
             this.appTodayDirective.day === today.getDate() &&
@@ -19,6 +23,5 @@ export class TodayDirective implements OnInit{
         ){
             this.renderer.addClass(this.el.nativeElement, 'todayDate')
         }
-    }
-
+    }  
 }
