@@ -97,4 +97,24 @@ export class CalendarComponent implements OnInit {
     this.currentYear++;
     this.generateCalendar();
   }
+
+  onPrevMonth(){
+    if(this.selectedMonthIndex < 1){
+      this.onPrevYear();
+      this.selectedMonthIndex = 11;
+    }
+    else{
+      this.selectedMonthIndex--;
+    }
+  }
+
+  onNextMonth(){
+    if(this.selectedMonthIndex > 10){
+      this.onNextYear();
+      this.selectedMonthIndex = 0;
+    }
+    else{
+      this.selectedMonthIndex++;
+    }
+  }
 }

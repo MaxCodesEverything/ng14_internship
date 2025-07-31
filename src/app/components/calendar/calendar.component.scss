@@ -71,8 +71,6 @@
   align-items: center;
   gap: 35px;
 
-  
-
   &__btn{
     border: 1px solid rgba(0, 0, 0, 0.399);
     border-radius: 4px;
@@ -86,6 +84,13 @@
       transform: scale(1.05);
     }
   }
+}
+
+.month-active-card-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .month-active{
@@ -114,6 +119,17 @@
   &:hover {
     background: #F0F0F0;
     transform: none;
+  }
+
+  &__arrow{
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover{
+      transform: scale(1.5);
+      color: #9e3fc7;
+    }
   }
 }
 

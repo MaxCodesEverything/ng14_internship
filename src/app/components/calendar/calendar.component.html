@@ -1,7 +1,7 @@
 <div class="year-header">
-  <i class="fa-solid fa-arrow-left year-header__arrow" (click)="onPrevYear()"></i>
+  <i class="fa-solid fa-arrow-left year-header__arrow" (click)="onPrevYear()" *ngIf="!monthViewActive"></i>
   <h1>{{ currentYear }}</h1>
-  <i class="fa-solid fa-arrow-right year-header__arrow" (click)="onNextYear()"></i>
+  <i class="fa-solid fa-arrow-right year-header__arrow" (click)="onNextYear()" *ngIf="!monthViewActive"></i>
 </div>
 
 <div *ngIf="!monthViewActive" class="months-grid">
@@ -23,20 +23,24 @@
 </div>
 
 <div *ngIf="monthViewActive" class="month-active-container">
-  <div class="month-card month-active">
-    <div class="month-card__month-name month-active__month-name">{{ months[selectedMonthIndex] }}</div>
-    
-     <div class="month-card__calendar-grid month-active__calendar-grid">
-      <div class="month-card__day-name month-active__day-name" *ngFor="let day of weekdays; trackBy: trackByFn">
-        {{ day }}
-      </div>
-
-      <ng-container *ngFor="let week of calendars[selectedMonthIndex]; trackBy: trackByFn">
-        <div class="month-card__day-cell month-active__day-cell" *ngFor="let day of week; trackBy: trackByFn">
-          <app-calendar-day [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
+  <div class="month-active-card-container">
+    <i class="fa-solid fa-arrow-left month-active__arrow" (click)="onPrevMonth()"></i>
+    <div class="month-card month-active">
+      <div class="month-card__month-name month-active__month-name">{{ months[selectedMonthIndex] }}</div>
+      
+      <div class="month-card__calendar-grid month-active__calendar-grid">
+        <div class="month-card__day-name month-active__day-name" *ngFor="let day of weekdays; trackBy: trackByFn">
+          {{ day }}
         </div>
-      </ng-container>
+
+        <ng-container *ngFor="let week of calendars[selectedMonthIndex]; trackBy: trackByFn">
+          <div class="month-card__day-cell month-active__day-cell" *ngFor="let day of week; trackBy: trackByFn">
+            <app-calendar-day [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
+          </div>
+        </ng-container>
+      </div>
     </div>
+    <i class="fa-solid fa-arrow-right month-active__arrow" (click)="onNextMonth()"></i>
   </div>
 
   <button class="month-active-container__btn" (click)="onReturnBtn()"><= Return</button>
