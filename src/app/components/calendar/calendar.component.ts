@@ -53,6 +53,7 @@ export class CalendarComponent implements OnInit {
   }
 
   private generateCalendar(){
+    this.calendars = [];
     for (let month = 0; month < 12; month++) {
       this.calendars.push(this.generateMonthCalendar(this.currentYear, month));
     }
@@ -85,5 +86,15 @@ export class CalendarComponent implements OnInit {
 
   onReturnBtn(){
     this.monthViewActive = false;
+  }
+
+  onPrevYear(){
+    this.currentYear--;
+    this.generateCalendar();
+  }
+
+  onNextYear(){
+    this.currentYear++;
+    this.generateCalendar();
   }
 }

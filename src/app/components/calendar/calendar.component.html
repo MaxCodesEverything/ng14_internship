@@ -1,5 +1,7 @@
 <div class="year-header">
+  <i class="fa-solid fa-arrow-left year-header__arrow" (click)="onPrevYear()"></i>
   <h1>{{ currentYear }}</h1>
+  <i class="fa-solid fa-arrow-right year-header__arrow" (click)="onNextYear()"></i>
 </div>
 
 <div *ngIf="!monthViewActive" class="months-grid">
