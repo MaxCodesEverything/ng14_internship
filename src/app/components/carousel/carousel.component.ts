@@ -13,12 +13,26 @@ import { Images } from "src/assets/interfaces/images.interface";
 
 export class CarouselComponent implements OnInit{
 
-    selectedIndex: number = 0;
+    get selectedIndex(): number{
+        if (this.currentPosition === 0){
+            return this.images.length - 1;
+        } 
+        else if (this.currentPosition === this.images.length + 1){
+            return 0;
+        } 
+        else{
+            return this.currentPosition - 1;
+        }
+    }
+
     intervalId: any;
     autoScroll: boolean = false;
     hasControlDots: boolean = true;
     hasControlArrows: boolean = true;
     autoScrollTimer: number = 3000;
+
+    currentPosition: number = 1;
+    transitionStyle: string = 'transform 0.4s ease-in-out';
 
     ngOnInit(): void {
         this.checkAutoScroll();
@@ -39,6 +53,8 @@ export class CarouselComponent implements OnInit{
             imgAlt: 'nature 3'
         }
     ];
+
+    
 
     startAutoScroll(){
         if(this.autoScroll){
@@ -68,8 +84,9 @@ export class CarouselComponent implements OnInit{
         }
     }
 
-    onDotClick(index: number){
-        this.selectedIndex = index;
+    onDotClick(index: number) {
+        this.currentPosition = index + 1;
+        this.transitionStyle = 'transform 0.4s ease-in-out';
     }
 
     toggleDots(){
@@ -87,19 +104,28 @@ export class CarouselComponent implements OnInit{
         }
     }
 
-    onPrevBtn(){
-        this.selectedIndex--;
-
-        if(this.selectedIndex < 0){
-            this.selectedIndex = this.images.length - 1;
-        }
+    onNextBtn() {
+        if (this.currentPosition >= this.images.length + 1) return;
+        this.currentPosition++;
+        this.transitionStyle = 'transform 0.4s ease-in-out';
     }
 
-    onNextBtn(){
-        this.selectedIndex++;
+    onPrevBtn() {
+        if (this.currentPosition <= 0) return;
+        this.currentPosition--;
+        this.transitionStyle = 'transform 0.4s ease-in-out';
+    }
 
-        if(this.selectedIndex > this.images.length - 1){
-            this.selectedIndex = 0;
+    onTransitionEnd() {
+        if (this.currentPosition === this.images.length + 1) {
+            this.transitionStyle = 'none';
+            this.currentPosition = 1;
+        }
+
+        if (this.currentPosition === 0) {
+            this.transitionStyle = 'none';
+            this.currentPosition = this.images.length;
         }
     }
+    
 }

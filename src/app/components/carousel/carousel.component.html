@@ -1,10 +1,16 @@
 <div class="carousel-container">
-    <div class="carousel-track" [style.transform]="'translateX(' + (-selectedIndex * 100) + '%)'">
-        <img *ngFor="let image of images" 
-            [src]="image.imgSrc" 
-            [alt]="image.imgAlt" 
-            class="carousel-image"
-        >
+    <div class="carousel-track"
+        [ngStyle]="{ 'transform': 'translateX(' + (-currentPosition * 100) + '%)', 'transition': transitionStyle }"
+        (transitionend)="onTransitionEnd()"
+    >
+        <!-- Клон последнего слайда -->
+        <img [src]="images[images.length - 1].imgSrc" [alt]="images[images.length - 1].imgAlt" class="carousel-image" />
+
+        <!-- Оригинальные слайды -->
+        <img *ngFor="let image of images" [src]="image.imgSrc" [alt]="image.imgAlt" class="carousel-image" />
+
+        <!-- Клон первого слайда -->
+        <img [src]="images[0].imgSrc" [alt]="images[0].imgAlt" class="carousel-image" />
     </div>
 
     <div *ngIf="hasControlDots" class="dots-container">

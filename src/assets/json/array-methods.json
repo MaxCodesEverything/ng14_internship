@@ -52,5 +52,65 @@
         "title": "Array.sort()",
         "description": "Сортирует массив как строку(по дефолту в алфавитном порядке). Можно передать 2 параметра (a, b) и написать callback-функцию для сортировки чисел.",
         "returns": "Mutated Array"
+    },
+    {
+        "id": 9,
+        "title": "Array.toString()",
+        "description": "Преобразует массив в строку",
+        "returns": "string"
+    },
+    {
+        "id": 10,
+        "title": "Array.concat()",
+        "description": "Объединяет массивы",
+        "returns": "New Array"
+    },
+    {
+        "id": 11,
+        "title": "Array.splice(startIndex, howManyElements, 'new element', ...)",
+        "description": "Позволяет удалить, добавить новые элементы. Мутирует исходный массив",
+        "returns": "Mutated Array"
+    },
+    {
+        "id": 12,
+        "title": "Array.slice(start, end)",
+        "description": "Возвращает новый массив, содержащий элементы от start до end (не включая end)",
+        "returns": "New Array"
+    },
+    {
+        "id": 13,
+        "title": "Array.indexOf(element)/Array.lastIndexOf(element)",
+        "description": "Возвращает первый/последний индекс найденного элемента",
+        "returns": "number"
+    },
+    {
+        "id": 14,
+        "title": "Array.flat(layerNum)",
+        "description": "Используется для разворачивания вложенных массивов. По дефолту 1 уровень вложенности, можно передать число в параметры.",
+        "returns": "New Array"
+    },
+    {
+        "id": 15,
+        "title": "Array.push(...items)",
+        "description": "Добавляет элементы в конец массива",
+        "returns": "New length of the array"
+    },
+    {
+        "id": 16,
+        "title": "Array.pop()",
+        "description": "Извлекает элемент из конца массива",
+        "returns": "Removed element"
+    },
+    {
+        "id": 17,
+        "title": "Array.shift()",
+        "description": "Извлекает элемент из начала массива",
+        "returns": "Removed element"
+    },
+    {
+        "id": 18,
+        "title": "Array.unshift(...items)",
+        "description": "Вставляет элемент(ы) в начало массива",
+        "returns": "New length of the array"
     }
 ]
