@@ -1,4 +1,4 @@
-<div *ngIf="day" [appCalendarDirective]="highlightToday ? {year: year, month: monthIndex, day: day} : null"
+<div class="calendar-day" *ngIf="day" [appCalendarDirective]="highlightToday ? {year: year, month: monthIndex, day: day} : null"
     [dayOfWeekIndex]="dayOfWeekIndex" [highlightWeekends]="highlightWeekends"
 >{{ day }}</div>
 <div *ngIf="day === null">&nbsp;</div>
