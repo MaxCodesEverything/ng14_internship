@@ -20,6 +20,7 @@ export class CalendarComponent implements OnInit {
 
   monthViewActive: boolean = false;
   highlightToday: boolean = true;
+  highlightWeekends: boolean = false;
 
   ngOnInit(): void {
     this.generateCalendar();
@@ -127,5 +128,9 @@ export class CalendarComponent implements OnInit {
 
   toggleHighlightToday(){
     this.highlightToday = !this.highlightToday;
+  }
+
+  toggleHighlightWeekends(){
+    this.highlightWeekends = !this.highlightWeekends;
   }
 }

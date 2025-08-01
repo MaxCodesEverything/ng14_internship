@@ -16,4 +16,6 @@ export class CalendarDayComponent{
     @Input() year !: number;
 
     @Input() highlightToday: boolean = true;
+    @Input() highlightWeekends: boolean = false;
+    @Input() dayOfWeekIndex!: number;
 }

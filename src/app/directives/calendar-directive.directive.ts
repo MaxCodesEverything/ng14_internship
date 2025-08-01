@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, Input, OnChanges, Renderer2 } from "@angular/core";
 
 @Directive({
     selector: '[appCalendarDirective]',
@@ -7,11 +7,14 @@ import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2 } from "@ang
 
 export class CalendarDirective implements OnChanges{
     @Input() appCalendarDirective!: {year: number, month: number, day: number} | null;
+    @Input() dayOfWeekIndex!: number;
+    @Input() highlightWeekends: boolean  = false;
 
     constructor(private el: ElementRef, private renderer: Renderer2){}
 
     ngOnChanges() {
         this.checkToday();
+        this.onHighlightWeekends();
     }
 
     checkToday(){
@@ -26,4 +29,14 @@ export class CalendarDirective implements OnChanges{
             this.renderer.addClass(this.el.nativeElement, 'todayDate')
         }
     }  
+
+    onHighlightWeekends(){
+        this.renderer.removeClass(this.el.nativeElement,'weekendDate');
+        if(!this.highlightWeekends) return;
+
+        
+        if (this.dayOfWeekIndex === 5 || this.dayOfWeekIndex === 6) {
+            this.renderer.addClass(this.el.nativeElement,'weekendDate');
+        }
+    }
 }

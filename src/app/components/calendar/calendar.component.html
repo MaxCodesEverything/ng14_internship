@@ -15,7 +15,9 @@
 
       <ng-container *ngFor="let week of calendars[i]; trackBy: trackByFn">
         <div class="month-card__day-cell" *ngFor="let day of week; trackBy: trackByFn">
-          <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="i" [year]="currentYear"></app-calendar-day>
+          <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="i" [year]="currentYear"
+                             [dayOfWeekIndex]="week.indexOf(day)" [highlightWeekends]="highlightWeekends"
+          ></app-calendar-day>
         </div>
       </ng-container>
     </div>
@@ -35,7 +37,9 @@
 
         <ng-container *ngFor="let week of calendars[selectedMonthIndex]; trackBy: trackByFn">
           <div class="month-card__day-cell month-active__day-cell" *ngFor="let day of week; trackBy: trackByFn">
-            <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
+            <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"
+                              [dayOfWeekIndex]="week.indexOf(day)" [highlightWeekends]="highlightWeekends"
+            ></app-calendar-day>
           </div>
         </ng-container>
       </div>
@@ -56,9 +60,13 @@
     </div>
 
     <div class="settings">
-      <!-- Придумать как это реализовать -->
         <p>Highlight today</p> 
         <button (click)="toggleHighlightToday()">toggle</button>
+    </div>
+
+    <div class="settings">
+        <p>Highlight weekends</p> 
+        <button (click)="toggleHighlightWeekends()">toggle</button>
     </div>
     
 </div>
