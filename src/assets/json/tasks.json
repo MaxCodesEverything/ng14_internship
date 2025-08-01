@@ -1,20 +1,20 @@
 [
-    {
-        "id": 1,
-        "title": "Vowel Count",
-        "description": "Return the number (count) of vowels in the given string. We will consider a, e, i, o, u as vowels \nfor this Kata (but not y). The input string will only consist of lower case letters and/or spaces.",
-        "code": "function getCount(str) {\n  let counter = 0;\n  let vowels = 'aeiou';\n  for (let i = 0; i < str.length; i++) {\n    if (vowels.includes(str[i])) {\n      counter++;\n    }\n  }\n  return counter;\n}"
-    },
-    {
-        "id": 2,
-        "title": "List Filtering",
-        "description": "In this kata you will create a function that takes a list of non-negative integers and strings\nand returns a new list with the strings filtered out.",
-        "code": "function filter_list(l) {\n  return l.filter((n) => {\n    return typeof n === 'number';\n  });\n}"
-    },
-    {
-        "id": 3,
-        "title": "",
-        "description": "",
-        "code": ""
-    }
+  {
+    "id": 1,
+    "title": "Vowel Count",
+    "description": "Return the number (count) of vowels in the given string.\nWe will consider a, e, i, o, u as vowels (but not y).\nThe input string will only consist of lower case letters and/or spaces.",
+    "code": "function getCount(str) {\n  let counter = 0;\n  let vowels = 'aeiou';\n  for (let i = 0; i < str.length; i++) {\n    if (vowels.includes(str[i])) {\n      counter++;\n    }\n  }\n  return counter;\n}"
+  },
+  {
+    "id": 2,
+    "title": "List Filtering",
+    "description": "In this kata you will create a function that takes a list of non-negative integers and strings\nand returns a new list with the strings filtered out.",
+    "code": "function filter_list(l) {\n  return l.filter((n) => {\n    return typeof n === 'number';\n  });\n}"
+  },
+  {
+    "id": 3,
+    "title": "New Task",
+    "description": "New task",
+    "code": "function findShort(s){\n  let arr = s.split(' ');\n  let newArr = arr.map(word => word.length)\n  return Math.min(...newArr);\n}"
+  }
 ]
