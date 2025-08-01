@@ -15,7 +15,7 @@
 
       <ng-container *ngFor="let week of calendars[i]; trackBy: trackByFn">
         <div class="month-card__day-cell" *ngFor="let day of week; trackBy: trackByFn">
-          <app-calendar-day [day]="day" [monthIndex]="i" [year]="currentYear"></app-calendar-day>
+          <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="i" [year]="currentYear"></app-calendar-day>
         </div>
       </ng-container>
     </div>
@@ -35,7 +35,7 @@
 
         <ng-container *ngFor="let week of calendars[selectedMonthIndex]; trackBy: trackByFn">
           <div class="month-card__day-cell month-active__day-cell" *ngFor="let day of week; trackBy: trackByFn">
-            <app-calendar-day [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
+            <app-calendar-day [highlightToday]="highlightToday" [day]="day" [monthIndex]="selectedMonthIndex" [year]="currentYear"></app-calendar-day>
           </div>
         </ng-container>
       </div>
