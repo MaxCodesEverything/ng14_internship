@@ -40,6 +40,10 @@ const routes: Routes = [
     loadComponent: () => import('./components/carousel/carousel.component').then(c => c.CarouselComponent)
   },
   { 
+    path: 'components/rick-and-morty', 
+    loadComponent: () => import('./components/rick-and-morty/rick-and-morty.component').then(c => c.RickAndMortyComponent) 
+  },
+  { 
     path: 'test', // Component just for testing features
     loadComponent: () => import('./components/test/test.component').then(c => c.TestComponent)
   },

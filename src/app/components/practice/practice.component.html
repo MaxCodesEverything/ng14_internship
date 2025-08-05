@@ -1,5 +1,5 @@
 <app-task *ngFor="let task of tasks">
     <h2 task-name>{{ task.id }}. {{ task.title }}</h2>
     <pre description-text>{{ task.description }}</pre>
-    <pre solution-text>{{ task.code }}</pre>
+    <pre solution-text><code>{{ task.code }}</code></pre>
 </app-task>
